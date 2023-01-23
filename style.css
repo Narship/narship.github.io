@@ -1,0 +1,215 @@
+@import url('https://fonts.cdnfonts.com/css/khwan-sans');
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.body{
+    font-family: 'Khwan Sans', sans-serif;
+    background-color: #f2f2f2;
+    margin: 3rem;
+    min-width: 380px;
+    color: #252525;
+}
+
+.ventana{
+    display: grid;
+    grid-template-rows: 4rem 1fr 4rem;
+    align-items: center;
+    height: calc(100vh - 6rem);
+    min-height: 540px;
+    width: calc(100vw - 6rem);
+    min-width: 350px;
+    background-color: #f9fafb;
+    border-radius: 2rem;
+    transition: all 0.5;
+    }
+
+/* inicio menu de navegacion */
+
+.nav{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
+    height: 4rem;
+    background-color: white;
+    border-radius: 2rem 2rem 0rem 0rem;
+    transition: all 0.8s;
+    gap: 1rem;
+    padding: 0 2rem 0 2rem;
+}
+    .nav__tab{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 4rem;
+    }
+    .nav__tab--centro{
+        width: 100%;
+    }
+    .nav__tab--fin{
+        width: auto;
+    }
+    .nav__a{
+        text-decoration: none;
+        display: flex;
+        gap: 1rem;
+        color: #D8DADE;
+        line-height: 4rem;
+        transition: color 0.8s;
+    }
+    .nav__a--logo{
+        gap: 0.2rem;
+        color: #252525;
+    }
+    .nav .nav__a i{
+        font-size: 24px;
+    }
+    .nav__h2{
+        font-size: 1.6rem;
+        font-weight: bold;
+    }
+    .nav__h3{
+        font-size: 1rem;
+        font-weight: 400;
+    }
+    .nav__a:hover{
+        color: #252525;
+    }
+
+/* fin del menu de navegacion */
+
+/* inicio del bloque central */
+
+.main{
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr 80% 1fr;
+    grid-template-rows: min-content min-content min-content auto;
+    grid-template-areas:    "aside_i      h1      aside_d"
+                            "aside_i      p       aside_d"
+                            "aside_i      button  aside_d"
+                            "aside_i      img     aside_d";
+    justify-items: center;
+    align-items: center;
+    gap: 2rem;
+    overflow:hidden;
+}
+    .main__aside--i{
+        grid-area: aside_i;
+    }
+    .main__h1{
+        grid-area: h1;
+        font-size: 56px;
+        font-weight: 700;
+        text-align: center;
+        padding-top: calc(1rem + 2%);
+    }
+    .main__p{
+        grid-area: p;
+        text-align: center;
+    }
+    .main__p--logo{
+        color: black;
+    }
+    .main__button{
+        grid-area: button;
+        cursor: pointer;
+        position: relative;
+        height: 46px;
+        width: 152px;
+        border-radius: 12px;
+        overflow: hidden;
+        color: white;
+        text-decoration: none;
+        font-family: 'Khwan Sans', sans-serif;
+        font-size: 1rem;
+        letter-spacing: 0.1rem;
+        text-align: center;
+        line-height: 44px;
+        box-shadow: 0 4px 12px 0 rgba(152, 160, 180, 0.5);
+        z-index: 0;
+    }
+    .button__gradiente{
+        position: absolute;
+        background-image: linear-gradient(to right, #294a7a, #2c7a4a);
+        height: 50px;
+        width: 420px;
+        border-radius: 5px;
+        margin: -46px 0 0 -140px;
+        z-index: -1;
+        transition: all 0.4s ease;
+    }
+    .main__button:hover .button__gradiente{
+        transform: translateX(120px);
+    }
+    .main__img{
+        grid-area: img;
+        position: relative;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+    .main__img--contenido{
+        position: absolute;
+        width: 100%;
+        max-width: 800px;
+        left: 50%;
+        transform: translateX(-50%)
+    }
+    .main__aside--d{
+        grid-area: aside_d;
+    }
+
+/* fin del bloque home */
+
+/* inicio del bloque reproductor */
+
+.footer{
+    display: grid;
+    grid-template-columns: 1fr 80% 1fr;
+    height: 4rem;
+    background-color: #252525;
+    border-radius: 0 0 2rem 2rem;
+}
+    .footer__contenido{
+        display: flex;
+        color: white;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12px;
+    }
+    .footer__img{
+        height: 18px;
+    }
+/* fin del bloque reproductor */
+
+
+/* inicio del bloque responsive */
+
+@media screen and (max-width: 800px){
+    .nav__h3{
+        display: none;
+    }
+    .main__h1{
+        font-size: 48px;
+    }
+}
+
+@media screen and (max-height: 720px) and (max-width: 720px){
+    .main{
+        grid-template-areas:    "aside_i      button    aside_d"
+                                "aside_i      h1        aside_d"
+                                "aside_i      p         aside_d"
+                                "aside_i      img       aside_d";
+        gap: 1rem;
+    }
+    .main__h1{
+        font-size: 40px;
+    }
+    .main__button{
+        margin-top: 3rem;
+    }
+}
+/* fin del bloque responsive */
